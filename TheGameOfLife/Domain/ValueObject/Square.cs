@@ -27,12 +27,12 @@ public class Square : IEquatable<Square>
             throw new ArgumentException("お金と休みの効果を同時に設定することはできません", nameof(moneyValue));
         }
 
-        if ((squareType == SquareType.MoneyGain || squareType == SquareType.MoneyLoss) && moneyValue != 0)
+        if ((squareType == SquareType.MoneyGain || squareType == SquareType.MoneyLoss) && moneyValue == 0)
         {
             throw new ArgumentException($"マスの効果と設定値が矛盾しています。SquareType:{squareType}, moneyValue:{moneyValue}");
         }
 
-        if (squareType == SquareType.SkipTurn && skipTurnCount != 0)
+        if (squareType == SquareType.SkipTurn && skipTurnCount == 0)
         {
             throw new ArgumentException($"マスの効果と設定値が矛盾しています。SquareType:{squareType}, SkipTurnCount:{skipTurnCount}");
         }
